@@ -36,3 +36,24 @@ def save_segmentation(clf,out_name):
 
     choroid_coords = (mask_indices[0][choroid_ind], mask_indices[1][choroid_ind], mask_indices[2][choroid_ind])
     new_img[choroid_coords] = 1
+    imgObj = nib.Nifti1Image(new_img,maskObj.affine)
+    nib.save(imgObj,'{subjects_dir}/{subj}/mri/{out_name}'.format(subjects_dir=subjects_dir,
+                                                                                subj=subj,
+                                                                                out_name=out_name))
+
+def susan(input_img): 
+    input_img = input_img.split('.nii')[0]
+    cmd='susan {input_img}.nii.gz 1 1 3 1 0 {input_img}_susan.nii.gz'.format(input_img = input_img)
+    out,err = run_cmd(cmd)
+    
+## functions for running unix cmd
+# unix command
+def unix_cmd(cmd):
+    p=subprocess.Popen(cmd,stdout=subprocess.PIPE,stderr=subprocess.PIPE,shell=True)
+    out,err=p.communicate()
+    return out,err
+
+def show_error(err):
+    if len(err) > 0: 
+        print(err)
+        
