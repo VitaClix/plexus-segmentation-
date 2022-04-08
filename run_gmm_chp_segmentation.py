@@ -57,3 +57,24 @@ def show_error(err):
     if len(err) > 0: 
         print(err)
         
+
+# reading the T1 volume under freesurfer
+
+T1 = nib.load('{subjects_dir}/{subj}/mri/T1.mgz'.format(subjects_dir=subjects_dir,subj=subj)).get_data()
+
+
+# creating a mask for both ventricles and choroid plexus: 
+print 'Creating masks: choroid+ventricle.mgz and aseg_choroid.mgz'
+
+cmd = 'mri_binarize --i {subjects_dir}/{subj}/mri/aseg.mgz --match 31 63  --o {subjects_dir}/{subj}/mri/aseg_choroid_mask.nii.gz'
+cmd = cmd.format(subjects_dir=subjects_dir, subj=subj)
+run_cmd(cmd)
+
+
+cmd = 'mri_binarize --i {subjects_dir}/{subj}/mri/aseg.mgz --match 4 5 31  --o {subjects_dir}/{subj}/mri/lh_choroid+ventricle_mask.nii.gz'
+cmd = cmd.format(subjects_dir=subjects_dir, subj=subj)
+run_cmd(cmd)
+
+cmd = 'mri_binarize --i {subjects_dir}/{subj}/mri/aseg.mgz --match 43 44 63  --o {subjects_dir}/{subj}/mri/rh_choroid+ventricle_mask.nii.gz'
+cmd = cmd.format(subjects_dir=subjects_dir, subj=subj)
+run_cmd(cmd)
