@@ -78,3 +78,31 @@ run_cmd(cmd)
 cmd = 'mri_binarize --i {subjects_dir}/{subj}/mri/aseg.mgz --match 43 44 63  --o {subjects_dir}/{subj}/mri/rh_choroid+ventricle_mask.nii.gz'
 cmd = cmd.format(subjects_dir=subjects_dir, subj=subj)
 run_cmd(cmd)
+
+
+### left hemisphere (lh)
+# get the intensity values for the mask:
+
+print 'getting intensity values for the mask ....'
+
+maskObj = nib.load('{subjects_dir}/{subj}/mri/lh_choroid+ventricle_mask.nii.gz'.format(subjects_dir=subjects_dir,
+                                                                        subj=subj))
+mask = maskObj.get_data()
+mask_indices = np.where(mask==1)
+mask_indices_array = np.array(mask_indices)
+mask_T1_vals = T1[mask_indices]
+
+
+X = np.reshape(mask_T1_vals,(-1,1))
+gmmb = BayesianGaussianMixture(n_components=2, covariance_type='full').fit(X)
+
+save_segmentation(gmmb,'lh_choroid_gmmb_mask.nii.gz')
+
+
+## susan 
+input_img = '{subjects_dir}/{subj}/mri/lh_choroid_gmmb_mask.nii.gz'.format(subjects_dir=subjects_dir,subj=subj)
+susan(input_img)
+
+## read choroid_gmmb_mask_susan.nii.gz
+choroid_gmmb_mask = nib.load('{subjects_dir}/{subj}/mri/lh_choroid_gmmb_mask.nii.gz'.format(subjects_dir=subjects_dir, subj=subj))
+choroid_gmmb_mask_ = choroid_gmmb_mask.get_data()
