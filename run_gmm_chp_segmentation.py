@@ -122,3 +122,28 @@ choroid_susan_segObj = nib.Nifti1Image(choroid_susan_seg,choroid_gmmb_mask.affin
 nib.save(choroid_susan_segObj,'{subjects_dir}/{subj}/mri/lh_choroid_susan_segmentation.nii.gz'.format(subjects_dir=subjects_dir,subj=subj))
 
 
+
+#### rh 
+
+print 'getting intensity values for the mask ....'
+
+maskObj = nib.load('{subjects_dir}/{subj}/mri/rh_choroid+ventricle_mask.nii.gz'.format(subjects_dir=subjects_dir,
+                                                                        subj=subj))
+mask = maskObj.get_data()
+mask_indices = np.where(mask)
+mask_indices_array = np.array(mask_indices)
+mask_T1_vals = T1[mask_indices]
+
+
+## GMM
+X = np.reshape(mask_T1_vals,(-1,1))
+gmm = GaussianMixture(n_components=2, covariance_type='full').fit(X)
+gmmb = BayesianGaussianMixture(n_components=2, covariance_type='full').fit(X)
+save_segmentation(gmmb,'rh_choroid_gmmb_mask.nii.gz')
+
+
+## susan 
+input_img = '{subjects_dir}/{subj}/mri/rh_choroid_gmmb_mask.nii.gz'.format(subjects_dir=subjects_dir,subj=subj)
+susan(input_img)
+
+## read choroid_gmmb_mask_susan.nii.gz
