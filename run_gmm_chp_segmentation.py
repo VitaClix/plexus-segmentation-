@@ -179,3 +179,16 @@ run_cmd(cmd)
 
 
 ###### stats ######
+
+def write_stats(input_img,fname):
+    cmd = 'fslstats {input_img} -V'.format(input_img=input_img)
+    out,err = run_cmd(cmd)
+    stat = out.split('\n')[0].split(' ')[0]
+    f = open(fname,'w')
+    f.write(stat)
+    
+    
+for img in ['lh_choroid_gmmb_mask','lh_choroid_susan_segmentation','rh_choroid_gmmb_mask','rh_choroid_susan_segmentation','aseg_choroid']:
+    input_img = '{subjects_dir}/{subj}/mri/{img}.nii.gz'.format(subjects_dir=subjects_dir, subj=subj, img = img)
+    fname='{subjects_dir}/{subj}/mri/{img}_stat.txt'.format(subjects_dir=subjects_dir, subj=subj, img=img)
+    write_stats(input_img,fname=fname)
