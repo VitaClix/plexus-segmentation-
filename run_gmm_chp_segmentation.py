@@ -147,3 +147,19 @@ input_img = '{subjects_dir}/{subj}/mri/rh_choroid_gmmb_mask.nii.gz'.format(subje
 susan(input_img)
 
 ## read choroid_gmmb_mask_susan.nii.gz
+choroid_gmmb_mask = nib.load('{subjects_dir}/{subj}/mri/rh_choroid_gmmb_mask.nii.gz'.format(subjects_dir=subjects_dir, subj=subj))
+choroid_gmmb_mask_ = choroid_gmmb_mask.get_data()
+
+choroid_gmmb_susan = nib.load('{subjects_dir}/{subj}/mri/rh_choroid_gmmb_mask_susan.nii.gz'.format(subjects_dir=subjects_dir, subj=subj)).get_data()
+
+choroid_gmmb_mask_ind = np.where(choroid_gmmb_mask_==1)
+susan_vals = choroid_gmmb_susan[choroid_gmmb_mask_ind]
+
+susan_gmmb = BayesianGaussianMixture(n_components=3).fit(np.reshape(susan_vals,(-1,1)))
+susan_gmmb_predict = susan_gmmb.predict(np.reshape(susan_vals,(-1,1)))
+
+m = susan_gmmb.means_.flatten()
+
+choroid_ind = np.where(m==np.max(m))[0][0]
+
+choroid_susan_seg = np.zeros(choroid_gmmb_mask_.shape)
