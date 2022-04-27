@@ -163,3 +163,19 @@ m = susan_gmmb.means_.flatten()
 choroid_ind = np.where(m==np.max(m))[0][0]
 
 choroid_susan_seg = np.zeros(choroid_gmmb_mask_.shape)
+choroid_susan_seg[(choroid_gmmb_mask_ind[0][susan_gmmb_predict==choroid_ind],choroid_gmmb_mask_ind[1][susan_gmmb_predict==choroid_ind], choroid_gmmb_mask_ind[2][susan_gmmb_predict==choroid_ind])]= 1
+
+choroid_susan_segObj = nib.Nifti1Image(choroid_susan_seg,choroid_gmmb_mask.affine)
+nib.save(choroid_susan_segObj,'{subjects_dir}/{subj}/mri/rh_choroid_susan_segmentation.nii.gz'.format(subjects_dir=subjects_dir,subj=subj))
+
+
+## saving final masks
+
+cmd = 'fslmaths {subjects_dir}/{subj}/mri/lh_choroid_susan_segmentation.nii.gz -add {subjects_dir}/{subj}/mri/rh_choroid_susan_segmentation.nii.gz {subjects_dir}/{subj}/mri/choroid_susan_segmentation.nii.gz'.format(subjects_dir=subjects_dir,subj=subj)
+run_cmd(cmd)
+
+cmd = 'fslmaths {subjects_dir}/{subj}/mri/lh_choroid_gmmb_mask.nii.gz -add {subjects_dir}/{subj}/mri/rh_choroid_gmmb_mask.nii.gz {subjects_dir}/{subj}/mri/choroid_gmmb_mask.nii.gz'.format(subjects_dir=subjects_dir,subj=subj)
+run_cmd(cmd)
+
+
+###### stats ######
