@@ -1,1 +1,1 @@
-# Improved Choroid Plexus Segmentation using Gauss
+# Improved Choroid Plexus Segmentation using Gaussian Mixture 
