@@ -4,4 +4,4 @@ This repository focuses on the study of choroid plexus and its crucial role in C
 
 ## Citation
 
-Our paper describin
+Our paper describing this lightweight alg
