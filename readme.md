@@ -4,4 +4,4 @@ This repository focuses on the study of choroid plexus and its crucial role in C
 
 ## Citation
 
-Our paper describing this lightweight algorithm with potential implications for multi-modal neuroima
+Our paper describing this lightweight algorithm with potential implications for multi-modal neuroimaging studies of cho
