@@ -6,4 +6,4 @@ This repository focuses on the study of choroid plexus and its crucial role in C
 
 Our paper describing this lightweight algorithm with potential implications for multi-modal neuroimaging studies of choroid plexus in dementia is published. If you use ChP-GMM segmentation, please cite our paper: 
 
-> Improving
+> Improving Choroid Plexu
