@@ -9,4 +9,6 @@ Our paper describing this lightweight algorithm with potential implications for 
 > Improving Choroid Plexus Segmentation in the Healthy and Diseased Brain: Relevance for Tau-PET Imaging in Dementia. Journal of Alzheimer's Disease
 
 
-##
+## Pipeline
+
+![Pipelin
