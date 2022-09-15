@@ -11,4 +11,4 @@ Our paper describing this lightweight algorithm with potential implications for 
 
 ## Pipeline
 
-![Pipelin
+![Pipeline](./docs/pipel
