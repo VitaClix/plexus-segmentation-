@@ -11,4 +11,6 @@ Our paper describing this lightweight algorithm with potential implications for 
 
 ## Pipeline
 
-![Pipeline](./docs/pipel
+![Pipeline](./docs/pipeline.png)
+
+## Compa
