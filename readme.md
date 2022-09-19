@@ -13,4 +13,4 @@ Our paper describing this lightweight algorithm with potential implications for 
 
 ![Pipeline](./docs/pipeline.png)
 
-## Compa
+## Comparing GMM and Freesurfer aga
