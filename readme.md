@@ -13,4 +13,4 @@ Our paper describing this lightweight algorithm with potential implications for 
 
 ![Pipeline](./docs/pipeline.png)
 
-## Comparing GMM and Freesurfer against Manual Segmentation (MS) in 20 subjects of Human Connectom
+## Comparing GMM and Freesurfer against Manual Segmentation (MS) in 20 subjects of Human Connectome Project (HCP) datas
