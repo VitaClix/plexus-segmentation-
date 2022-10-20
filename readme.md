@@ -15,4 +15,6 @@ Our paper describing this lightweight algorithm with potential implications for 
 
 ## Comparing GMM and Freesurfer against Manual Segmentation (MS) in 20 subjects of Human Connectome Project (HCP) dataset
 
-![Performance](./d
+![Performance](./docs/performance.png)
+
+#
