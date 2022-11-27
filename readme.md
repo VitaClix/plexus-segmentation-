@@ -17,4 +17,4 @@ Our paper describing this lightweight algorithm with potential implications for 
 
 ![Performance](./docs/performance.png)
 
-## Choroid plexus segmentation for three repr
+## Choroid plexus segmentation for three representative sub
