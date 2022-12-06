@@ -17,4 +17,4 @@ Our paper describing this lightweight algorithm with potential implications for 
 
 ![Performance](./docs/performance.png)
 
-## Choroid plexus segmentation for three representative subjects of HCP dataset u
+## Choroid plexus segmentation for three representative subjects of HCP dataset using Freesurfe
