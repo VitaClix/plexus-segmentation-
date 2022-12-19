@@ -21,4 +21,6 @@ Our paper describing this lightweight algorithm with potential implications for 
 
 ![Samples](./docs/samples.png)
 
-## Req
+## Required packages
+
+- FSL
