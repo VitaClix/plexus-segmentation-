@@ -25,4 +25,4 @@ Our paper describing this lightweight algorithm with potential implications for 
 
 - FSL
 - Freesurfer
-- Pytho
+- Python: nibabel, sklearn, num
