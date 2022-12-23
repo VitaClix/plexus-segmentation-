@@ -24,3 +24,5 @@ Our paper describing this lightweight algorithm with potential implications for 
 ## Required packages
 
 - FSL
+- Freesurfer
+- Pytho
