@@ -27,4 +27,6 @@ Our paper describing this lightweight algorithm with potential implications for 
 - Freesurfer
 - Python: nibabel, sklearn, numpy 
 
-## How to run the 
+## How to run the code
+
+The current
