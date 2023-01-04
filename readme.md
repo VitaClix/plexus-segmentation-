@@ -29,4 +29,4 @@ Our paper describing this lightweight algorithm with potential implications for 
 
 ## How to run the code
 
-The current version of the scrip
+The current version of the script requires Freesur
