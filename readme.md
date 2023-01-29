@@ -31,4 +31,5 @@ Our paper describing this lightweight algorithm with potential implications for 
 
 The current version of the script requires Freesurfer processed files (recon-all) for ventricular segmentation. After running recon-all, you can get the choroid plexus segmentation as follows: 
 
-```
+```bash
+python run_gm
