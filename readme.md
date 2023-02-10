@@ -34,4 +34,4 @@ The current version of the script requires Freesurfer processed files (recon-all
 ```bash
 python run_gmm_chp_segmentation.py <freesurfer_subjects_dir> <subject_id>
 ```
-The resulting choroid plexus segme
+The resulting choroid plexus segmentation can be fou
