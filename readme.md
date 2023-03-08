@@ -36,4 +36,4 @@ python run_gmm_chp_segmentation.py <freesurfer_subjects_dir> <subject_id>
 ```
 The resulting choroid plexus segmentation can be found under `<freesurfer_subjects_dir><subject_id>mri/choroid_susan_segmentation.nii.gz`
 
-For further qu
+For further questions, please email
